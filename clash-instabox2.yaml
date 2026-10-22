@@ -1,0 +1,24 @@
+proxies:
+  - name: InstaBox2-US-xhttp
+    type: vless
+    server: 8080-agqwczafsfx4lnkf33ghf7mw2u.instabox.tech
+    port: 443
+    uuid: 65d454ad-586d-403f-a07c-f1b05c6dc804
+    network: xhttp
+    tls: true
+    udp: true
+    servername: 8080-agqwczafsfx4lnkf33ghf7mw2u.instabox.tech
+    xhttp-opts:
+      path: "/p56ws"
+      host: "8080-agqwczafsfx4lnkf33ghf7mw2u.instabox.tech"
+      mode: "packet-up"
+
+proxy-groups:
+  - name: InstaBox2
+    type: select
+    proxies:
+      - InstaBox2-US-xhttp
+      - DIRECT
+
+rules:
+  - MATCH,InstaBox2
