@@ -1,0 +1,24 @@
+proxies:
+  - name: InstaBox3-WS
+    type: vless
+    server: ib3.page56.dpdns.org
+    port: 443
+    uuid: e7eb58a3-2425-454b-91b8-f0ab0cce12f3
+    network: ws
+    tls: true
+    udp: true
+    servername: ib3.page56.dpdns.org
+    ws-opts:
+      path: "/p56ws"
+      headers:
+        Host: "ib3.page56.dpdns.org"
+
+proxy-groups:
+  - name: InstaBox3
+    type: select
+    proxies:
+      - InstaBox3-WS
+      - DIRECT
+
+rules:
+  - MATCH,InstaBox3
